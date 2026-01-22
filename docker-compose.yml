@@ -1,0 +1,27 @@
+# Explanation:
+#   services: → defines your containers
+#   web: → the Rails app container
+#   image: → the image you already built (rails-hello)
+#   ports: → lets you open localhost:3000 in your browser
+#   volumes: → mounts your project folder so you can edit files live
+
+version: '3'
+services:
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -b 0.0.0.0"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: myapp_development

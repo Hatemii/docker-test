@@ -29,5 +29,5 @@ COPY . .
 EXPOSE 3000
 
 # 8. Start the Rails server
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["bash"]
 
