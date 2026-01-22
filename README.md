@@ -3,7 +3,7 @@ There are two branches
  - docker-with-container
 
 # DOCKER WITHOUT CONTAINER SETUP 
-1. Build project
+1. Build project (sqlite as database)
 - docker build -t rails-hello .
 
 
@@ -13,7 +13,7 @@ There are two branches
 
 
 # DOCKER WITH CONTAINER SETUP
-1. Build project
+1. Build project (pg as database)
  - docker compose build
 
 2. Start Server (containers)
